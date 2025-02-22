@@ -1,0 +1,311 @@
+
+<div class="flex justify-center flex-col panel" >
+
+
+    <div class="header flex flex-col justify-between items-baseline gap-2 ">
+        <div class="d-flex justify-content-between" style="width:100%">
+            <h2 class="text-xl ">Products</h2>
+            <button (click)="isModalOpen = true;state='Create'"
+            
+     
+            style="width: 150px;height: 42px;" class="btn btn-primary">Create</button>
+    
+        </div>
+
+  
+              
+        <div class="row mt-3">
+
+            <!--<input [(ngModel)]="searchTerm" (keyup)="onSearch()" type="text" class="form-input w-150 " [placeholder]="'search'" />-->
+            <div class="col-6" style="position: relative;width:300px;height: 38px;"><input type="text" [(ngModel)]="searchTerm"  type="text" class="form-control" style="width:100% ;height: 38px;" (keyup)="onSearch()" [(ngModel)]="searchTerm"  [placeholder]="'search'">
+                <div 
+                style="position: absolute;top:50%;transform: translateY(-50%);right:23px"
+                >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ng-reflect-ng-class="mx-auto" class="mx-auto ng-star-inserted"><circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-width="1.5" opacity="0.5"></circle><path d="M18.5 18.5L22 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><!--container--></div></div>
+   
+
+   
+
+
+        </div>
+   
+
+    </div>
+    
+   
+    <div class="datagrid  mt-3">
+        <ngx-custom-modal
+        #CreateeModal
+        customClass="modal-top animate animate-slide-in-down CrudModal"
+        [hideCloseButton]="true"
+        [closeOnOutsideClick]="false"
+    [closeOnEscape]="false"
+        >
+     <ng-template #modalHeader>
+        <div class="relative">
+            <h1>Create Product</h1>
+            <button  (click)="CreateeModal.close()" style="position: absolute;top:40%;transform: translateY(-50%);
+           
+            flex-shrink: 0;
+            font-size: 1.875rem !important;
+            font-weight: 400;
+            line-height: 1.75rem !important;
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity));"  class="ltr:right-3 rtl:left-3">x</button> <!-- Times icon -->
+
+        </div>
+     </ng-template>
+        <ng-template #modalBody>
+         
+            <div class="flex items-center justify-center">
+                <form class="space-y-5 dark:text-white mt-3" [formGroup]="myForm"  (ngSubmit)="handle()">
+                    <div>
+                        <label for="ArName">Arabic Name</label>
+                        <div class="relative text-white-dark">
+                            <input id="ArName" type="text"   formControlName="ArName" [placeholder]='"Enter ArName"' class="form-input ps-10 placeholder:text-white-dark" value="" />
+                          
+                            
+                        </div>
+                       
+                    </div>
+                    <div *ngIf="myForm.get('ArName')?.touched&&myForm.get('ArName')?.invalid">
+                        <div  class="text-danger"*ngIf="myForm.get('ArName')?.errors?.['required']">{{"Arabic Name is required"}}</div>
+                        <div class="text-danger" *ngIf="myForm.get('ArName')?.hasError('invalidArabic')&&!myForm.get('ArName')?.errors?.['required']">{{"Only Arabic letters and English Numbers and Sapces  are allowed"}}</div>
+                        <div  class="text-danger" *ngIf="myForm.get('ArName')?.errors?.['maxlength']">{{"max Length"}} 100 {{"Character"}} </div>
+            
+                    </div>
+                    <div>
+                        <label for="ENName"><span>{{label.requiredLabel}}</span>{{"English Name"}}</label>
+                        <div class="relative text-white-dark">
+                            <input id="ENName" type="text"  [placeholder]='"Enter EN-Name"' formControlName="ENName" class="form-input ps-10 placeholder:text-white-dark" />
+                           
+                        </div>
+                    
+                    </div>
+            
+                    <div *ngIf="myForm.get('ENName')?.touched&&myForm.get('ENName')?.invalid">
+                        <div  class="text-danger"*ngIf="myForm.get('ENName')?.errors?.['required']">{{'English Name is required'}}</div>
+                        <div  class="text-danger"*ngIf="myForm.get('ENName')?.hasError('invalidEnglish') && !myForm.get('ENName')?.errors?.['required']" >{{"Only English letters are allowed"}}</div>
+                        <div  class="text-danger" *ngIf="myForm.get('ENName')?.errors?.['maxlength']">{{"max Length"}} 100 {{"Character"}} </div>
+            
+                    </div>
+                    <div>
+                        <label for="ArDescription">{{"Arabic Description"}}</label>
+                        <div class="relative text-white-dark">
+                           <!--<input id="ArDescription" type="text"   formControlName="ArDescription"  class="form-input ps-10 placeholder:text-white-dark" value="" />-->
+                          <textarea style="width: 100%;height: 100px;" formControlName="ArDescription" [placeholder]='"Enter Arabic Description"' class="form-textarea" > </textarea>
+                            
+                        </div>
+                       
+                    </div>
+                    <div *ngIf="myForm.get('ArDescription')?.touched&&myForm.get('ArDescription')?.invalid">
+                        <div  class="text-danger"*ngIf="myForm.get('ArDescription')?.errors?.['required']">{{"Arabic Description is required"}}</div>
+                        <div class="text-danger" *ngIf="myForm.get('ArDescription')?.hasError('invalidArabic')&&!myForm.get('ArDescription')?.errors?.['required']">{{"Only Arabic letters are allowed"}}</div>
+                        <div  class="text-danger" *ngIf="myForm.get('ArDescription')?.errors?.['maxlength']">{{"max Length"}} 1024 {{"Character"}} </div>
+            
+                    </div>
+                    <div>
+                        <label for="EnDescription">{{"English Description"}}</label>
+                        <div class="relative text-white-dark">
+                            <textarea style="width: 100%;height: 100px;" formControlName="EnDescription" [placeholder]='"Enter English Description"' class="form-textarea" > </textarea>
+                          
+                            
+                        </div>
+                       
+                    </div>
+                    <div *ngIf="myForm.get('EnDescription')?.touched&&myForm.get('EnDescription')?.invalid">
+                        <div  class="text-danger"*ngIf="myForm.get('EnDescription')?.errors?.['required']">{{"English Description is required"}}</div>
+                        <div class="text-danger" *ngIf="myForm.get('EnDescription')?.hasError('invalidEnglish')&&!myForm.get('EnDescription')?.errors?.['required']">{{"Only English letters are allowed"}}</div>
+                        <div  class="text-danger" *ngIf="myForm.get('EnDescription')?.errors?.['maxlength']">{{"max Length"}} 1024 {{"Character"}} </div>
+            
+                    </div>
+                    <div>
+                        <label for="BarCode"><span>{{label.requiredLabel}}</span>{{"BarCode"}}</label>
+                        <div class="relative text-white-dark">
+                            <input   formControlName="BarCode" [placeholder]='"Enter BarCode"' class="form-input" > 
+                          
+                            
+                        </div>
+                       
+                    </div>
+                    <div *ngIf="myForm.get('BarCode')?.touched&&myForm.get('BarCode')?.invalid">
+                        <div  class="text-danger"*ngIf="myForm.get('BarCode')?.errors?.['required']">{{"BarCode is required"}}</div>
+                        <div  class="text-danger"*ngIf="myForm.get('BarCode')?.hasError('noArabicOrSpaces')&&!myForm.get('BarCode')?.errors?.['required']">{{"Arabic Characters or Spaces Not Allowed"}}</div>
+
+                    </div>
+    
+ 
+    
+    
+           
+                 
+                </form>
+            </div>
+            
+        </ng-template>
+        <!--<ng-template #modalFooter>
+            <button type="button" (click)="serviceModal.close()" class="btn btn-outline-danger">Discard</button>
+            <button type="button" (click)="chooseExpertandTime.open()" class="btn btn-primary ltr:ml-4 rtl:mr-4">Save</button>
+        </ng-template>-->
+        </ngx-custom-modal>
+    
+    
+
+
+    <ng-datatable
+    #datatable
+    [rows]="rows"
+    skin="bh-table-striped"
+    [columns]="cols"
+    [sortable]="true"
+
+    [totalRows]="totalCount"
+    [isServerMode]="true"
+   
+    (changeServer)="onchange($event)"
+ 
+  
+    skin="whitespace-nowrap bh-table-hover"
+    firstArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+    lastArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M11 19L17 12L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M6.99976 19L12.9998 12L6.99976 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> '
+    previousArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+    nextArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+>
+    <ng-template slot="ID" let-value="data" >
+        <strong class="text-info flex items-center justify-center">{{ value.id }}</strong>
+    </ng-template>
+    <ng-template slot="Name" let-value="data">
+        <div class="flex items-center justify-center gap-2">
+            <div class="font-semibold">{{ value.name }}</div>
+        </div>
+    </ng-template>
+  
+    <ng-template slot="QuantityInStock" let-value="data">
+        <div class="flex items-center justify-center gap-2">
+            <div class="font-semibold">{{ value.quantityInStock }}</div>
+        </div>
+    </ng-template>
+
+   
+    <ng-template slot="Actions" let-value="data">
+        <div class="d-flex justify-content-center gap-3">
+        <button
+     
+        (click)="Update(value.id);UpdateModal.open()" class="btn btn-outline-primary" > Update </button>
+        <button 
+        
+        (click)="Delete(value.id)" class="btn btn-outline-danger">Delete</button>
+       
+        </div>
+    </ng-template>
+
+
+   
+
+
+
+
+  
+</ng-datatable>
+
+<!-- book.component.ts -->
+
+<abp-modal [(visible)]="isModalOpen" [busy]="inProgress">
+    <ng-template #abpHeader>
+      <h3 *ngIf="state=='Create'">Create Product</h3>
+      <h3 *ngIf="state=='Update'">Update Product</h3>
+    </ng-template>
+  
+    <ng-template #abpBody>
+      <form id="book-form" [formGroup]="form" (ngSubmit)="handle()">
+     
+  
+        <div class="form-group">
+          <label for="book-name">Name</label><span> * </span>
+          <input type="text" id="book-name" class="form-control" formControlName="name" />
+        </div>
+     <div *ngIf="form.get('name')?.touched&&form.get('name')?.invalid">
+        <div *ngIf="form.get('name')?.errors?.['required']" class="text-danger my-2">
+            Name is Required
+
+        </div>
+
+     </div>
+        <div class="form-group">
+          <label for="book-price">Price</label><span> * </span>
+          <input type="number" id="book-price" class="form-control" formControlName="price" />
+        </div>
+  
+
+  
+        <div class="form-group">
+          <label for="book-publish-date">Title</label><span> * </span>
+          <input
+            id="book-publish-date"
+            formControlName="Title"
+            class="form-control"
+            type="text"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="book-publish-date">Description</label>
+            <textarea
+              id="Product-Description"
+              formControlName="Description"
+              class="form-control"
+              type="text"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="QuantityInStock">QuantityInStock</label><span> * </span>
+            <input type="number" id="QuantityInStock" class="form-control" formControlName="QuantityInStock" />
+          </div>
+      </form>
+    </ng-template>
+  
+    <ng-template #abpFooter>
+      <button type="button" class="btn btn-secondary" abpClose>
+        Cancel
+      </button>
+  
+      <button form="book-form" class="btn btn-primary" [disabled]="form.invalid || form.pristine">
+        <i class="fa fa-check mr-1"></i>
+        Save
+      </button>
+    </ng-template>
+  </abp-modal>
+  
+
+
+
+  <abp-modal [(visible)]="ShowDeleteModal" [busy]="inProgress">
+    <ng-template #abpHeader>
+      <h3>Delete Product</h3>
+    </ng-template>
+  
+    <ng-template #abpBody>
+        Are You Sure you Want To Delete That Product
+        </ng-template>
+  
+    <ng-template #abpFooter>
+      <button type="button" class="btn btn-secondary" abpClose>
+        Cancel
+      </button>
+  
+      <button form="book-form" class="btn btn-primary" (click)="DeleteRecord()">
+        <i class="fa fa-check mr-1"></i>
+        Save
+      </button>
+    </ng-template>
+  </abp-modal>
+
+    
+    
+    
+
+
+
+
+

@@ -1,0 +1,121 @@
+.navbar-nav{
+    width: 100%;
+    display: flex
+;
+    justify-content: end;
+}
+.nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin:0px 20px;
+    gap:10px
+}
+
+.nav-item i{
+    color: white;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  .bras{
+    display: none;
+}
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (min-width: 1200px){
+    .sidebar {
+        display: block !important;
+            }
+            .row .col-2{
+                display: block !important;
+            }
+  }
+  @media screen and (max-width: 1200px) {
+    .sidebar {
+display: none;
+    }
+    .row .col-2{
+        display: none;
+    }
+    .row .col-10{
+        width: 100%;
+    }
+    .bras{
+        display: block;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: block;
+    }
+    .row .col-2{
+        display: block;
+    }
+    .bras{
+        display: none;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+    .bras{
+        display: block;
+    }
+    .row .col-2{
+        display: block;
+    }
+  }
+  .backdrop{
+    position: absolute;
+    left: 0;
+    top:0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    z-index: 9999999;
+    display: none;
+  }

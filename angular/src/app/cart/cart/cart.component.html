@@ -1,0 +1,43 @@
+<div class="container">
+    <h2 class="text-center mb-4">Shopping Cart</h2>
+  
+    <div *ngIf="Products.length; else emptyCart">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Products">
+            <td>{{ item.productName }}</td>
+            <td>{{ item.productPrice | currency }}</td>
+            <td>
+              <input type="number" [(ngModel)]="item.quantity" min="1" class="form-control w-50 d-inline" (change)="updateCart()" />
+            </td>
+            <td>{{ (item.productPrice * item.quantity) | currency }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="removeFromCart(item.productId)">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="card p-3 shadow-sm">
+        <h3>Cart Summary</h3>
+        <p><strong>Total Items:</strong> {{ getTotalItems() }}</p>
+        <p><strong>Tax:</strong>15%</p>
+        <p><strong>Total Price:</strong> {{ getTotalPrice() | currency }}</p>
+        <button class="btn btn-primary" >Proceed to Checkout</button>
+      </div>
+    </div>
+  
+    <ng-template #emptyCart>
+      <div class="alert alert-warning text-center">Your cart is empty.</div>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,103 @@
+<body style="background-color: #f1f1f1 !important;overflow: hidden;">
+<div class="backdrop">
+
+</div>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/images/logo/icon.svg" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+         
+          </a>
+          <i class="fas fa-bars bras" (click)="ShowSidebar()" style="color:white;position: relative;z-index: 10000000000000000000000000000000;"></i>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" *ngIf="!Role">
+            <a class="nav-link" routerLink="/Cart"  style="position: relative;">
+                <i class="fas fa-shopping-cart"></i>
+                <p class="count" style="position: absolute;
+                left: 72%;
+                top: 34%;
+                background: red;
+                width: 23px;
+                height: 23px;
+                border-radius: 50%;
+                display: flex
+            ;
+                align-items: center;
+                justify-content: center;
+                color: white;">{{cartCount}}</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-user"></i>
+            <p class="m-0">{{User}}</p>
+          </li>
+          <li class="nav-item">
+           
+            <p class="m-0" (click)="LogOut()">LogOut <i class="fas fa-sign-out my-1"></i></p>
+          </li>
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+  
+<div  style="background-color: #f1f1f1;display: flex;">
+
+     
+
+<div style="margin-top: 50px; flex: 1">
+  <div class="flex container-fluid ">
+   
+    <div class="row" style="    width: 100vw;
+    overflow-x: hidden;">
+      <div class="col-2" *ngIf="Role">
+        <div class="sidebar">
+          <a class="active" href="/Products/Index">Products</a>
+         <a href="/Products/Index">Users</a>
+         <a  href="/Products/Index">Carts</a>
+         <a  href="/Products/Index">Info</a>
+        </div>
+      </div>
+      <div class="col-10"  *ngIf="Role">
+        <router-outlet ></router-outlet>
+      </div>
+      <div class="col-12"  *ngIf="!Role">
+        <router-outlet (cartCount)="Handle($event)" ></router-outlet>
+      </div>
+    </div>
+  
+    <!-- Page content -->
+ 
+    
+   
+    
+    
+    
+    
+  </div>
+</div>
+</div>
+
+<footer
+style="
+width: 100vw;
+
+background-color: black;
+color: white;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+"
+>
+<h5>&copy; All Rights Reserved by Mohamed Atif</h5>
+</footer>
+
+</body>
+

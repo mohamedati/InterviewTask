@@ -1,0 +1,101 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXLiteTheme": {
+      "version": "4.0.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.Account": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.TenantManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "Acme.InterViewTask.Application": {
+      "path": "src/Acme.InterViewTask.Application/Acme.InterViewTask.Application.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.Application.Tests": {
+      "path": "test/Acme.InterViewTask.Application.Tests/Acme.InterViewTask.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "Acme.InterViewTask.Domain.Shared": {
+      "path": "src/Acme.InterViewTask.Domain.Shared/Acme.InterViewTask.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.Application.Contracts": {
+      "path": "src/Acme.InterViewTask.Application.Contracts/Acme.InterViewTask.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.HttpApi": {
+      "path": "src/Acme.InterViewTask.HttpApi/Acme.InterViewTask.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.HttpApi.Client": {
+      "path": "src/Acme.InterViewTask.HttpApi.Client/Acme.InterViewTask.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.EntityFrameworkCore.Tests": {
+      "path": "test/Acme.InterViewTask.EntityFrameworkCore.Tests/Acme.InterViewTask.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "Acme.InterViewTask.EntityFrameworkCore": {
+      "path": "src/Acme.InterViewTask.EntityFrameworkCore/Acme.InterViewTask.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.TestBase": {
+      "path": "test/Acme.InterViewTask.TestBase/Acme.InterViewTask.TestBase.abppkg",
+      "folder": "test"
+    },
+    "Acme.InterViewTask.Domain.Tests": {
+      "path": "test/Acme.InterViewTask.Domain.Tests/Acme.InterViewTask.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "Acme.InterViewTask.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Acme.InterViewTask.HttpApi.Client.ConsoleTestApp/Acme.InterViewTask.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "Acme.InterViewTask.DbMigrator": {
+      "path": "src/Acme.InterViewTask.DbMigrator/Acme.InterViewTask.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.HttpApi.Host": {
+      "path": "src/Acme.InterViewTask.HttpApi.Host/Acme.InterViewTask.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "Acme.InterViewTask.Domain": {
+      "path": "src/Acme.InterViewTask.Domain/Acme.InterViewTask.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

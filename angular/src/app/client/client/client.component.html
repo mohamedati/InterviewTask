@@ -1,0 +1,61 @@
+
+<div class="container mb-3">
+  <div class="row">
+    <div class="col-6">
+      <input class="form-control  " placeholder="Filter By Name" #search (keyup)="Filter(search.value)" type="search" style="width: 100%;background-color: white;">
+    </div>
+    <div class="col-6">
+      
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="Paginate(currentPage - 1)" [class.disabled]="currentPage === 1">Previous</a>
+          </li>
+          
+          <li class="page-item" *ngFor="let ele of total; let i = index" [class.active]="currentPage === i + 1">
+            <a class="page-link" (click)="Paginate(i + 1)">{{ i + 1 }}</a>
+          </li>
+          
+          <li class="page-item">
+            <a class="page-link" (click)="Paginate(currentPage + 1)" [class.disabled]="currentPage === total.length">Next</a>
+          </li>
+        </ul>
+      </nav>
+      
+   </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row" >
+<div class="col-12  col-sm-5 col-md-4 col-lg-4 p-3" *ngFor="let item of rows">
+  <div class="card p-0" >
+    <img class="card-img-top" src="../../../assets/images/download.jpg" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title">{{item.name}}</h4>
+      <p class="card-text">{{item.description}}</p>
+      <div class="d-flex justify-content-between ">
+        <p>{{item.price}} $</p>
+          <div class="starts d-flex " style="color: gold;">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+    </div>
+    <div class="px-2" style="margin-top: -31px;">
+      <hr style="background-color: aqua;height: 3px;">
+    </div>
+  
+    <div class="p-3" style="margin-top: -23px;">
+      <button class="btn btn-outline-danger btn-block" style="width: 100%;" (click)="AddTocart(item.id)">
+Add To Cart <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+</div>

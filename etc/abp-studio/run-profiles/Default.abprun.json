@@ -1,0 +1,23 @@
+﻿{
+  "applications": {
+    "Acme.InterViewTask.HttpApi.Host": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44342",
+      "path": "../../../src/Acme.InterViewTask.HttpApi.Host/Acme.InterViewTask.HttpApi.Host.csproj",
+      "kubernetesService": ".*-httpapihost$",
+      "execution": {
+        "order": 4
+      }
+    },
+    "Acme.InterViewTask.Angular": {
+      "type": "cli",
+      "workingDirectory": "../../../angular",
+      "startCommand": "./start.ps1",
+      "launchUrl": "http://localhost:4200",
+      "kubernetesService": ".*-angular$",
+      "execution": {
+        "order": 2
+      }    
+    }
+  }
+}

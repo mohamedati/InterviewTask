@@ -1,0 +1,151 @@
+.datagrid{
+    width: 100%;
+
+
+}
+.panel{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.datagrid .controls{
+  flex-direction: row;
+}
+ .pagination.mobile{
+display: none;
+}
+
+:host ::ng-deep ng-datatable{
+  max-width: 100%;
+  overflow-x: auto;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table thead tr th .bh-flex{
+  text-align: center !important;
+  justify-content: center;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table thead tr td div{
+  justify-content: flex-start;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:hover{
+  background-color: #f9f9f9;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:nth-child(even){
+  background-color: #f9f9f9;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:nth-child(odd){
+  background-color: #ffffff;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:hover:is(.dark *) td{
+
+  background-color: rgb(26 41 65 / 0.4);
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:hover:is(.dark *) td >*{
+background-color: transparent;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:hover:is(.dark *) td  div{
+  background-color: transparent;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:nth-child(odd):is(.dark *)  td
+
+
+{
+  background-color: rgb(26 41 65 / 0.4);
+}
+
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:nth-child(odd):is(.dark *)  td >*{
+  background-color: transparent;
+}
+:host ::ng-deep .bh-datatable .bh-table-responsive table tr:nth-child(odd):is(.dark *)  td div{
+  background-color: transparent;
+}
+::ng-deep .ng-select .ng-select-dropdown {
+  max-height: 200px; /* Ensure the dropdown has a max height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+:host ::ng-deep .ng-dropdown-panel .scroll-host{
+  height: 100px;
+}
+
+
+:host ::ng-deep .bh-datatable .bh-table-responsive table tbody :is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 23 38 / var(--tw-bg-opacity));
+ 
+}
+@media  screen and (max-width:1500px) {
+
+
+}
+@media  screen and (max-width:992px) {
+
+ 
+  .datagrid .controls{
+    flex-direction: column;
+    gap:8px;
+    margin-bottom: 10px;
+  }
+  
+}
+@media  screen and (max-width:768px) {
+
+
+ .pagination{
+  display: none !important;
+ }
+ 
+  .pagination.mobile{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap:10px
+  }
+
+
+}
+
+
+form{
+  width: 100%;
+}
+
+:host ::ng-deep ng-datatable .bh-datatable .bh-table-responsive table tbody tr td{
+    text-align: center !important;
+}
+
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+ 
+  :host ::ng-deep .Preview-control .modal-dialog {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    width: 100%;
+    max-width: 32rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+
+  }
+  :host ::ng-deep  .TopMost{
+    position: fixed !important;
+    z-index: 5555 !important;
+  }
+ 
+  :host ::ng-deep .CrudModal .modal-body{
+    padding-top: 0;
+  }
+  
+
+  
